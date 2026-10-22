@@ -14,7 +14,6 @@ import java.util.List;
 
 public class ServicioCliente {
 
-    // 1. INSERTAR CLIENTE Y PERSONA
     public boolean insert(Cliente cliente) {
         String sqlPersona = """
             INSERT INTO public.persona
@@ -65,8 +64,7 @@ public class ServicioCliente {
         }
     }
 
-    // 2. LISTAR TODOS LOS CLIENTES
-    public List<Cliente> listar() {
+   public List<Cliente> listar() {
         List<Cliente> clientes = new ArrayList<>();
 
         String sql = """
@@ -103,7 +101,6 @@ public class ServicioCliente {
         return clientes;
     }
 
-    // 3. BUSCAR CLIENTE POR CÓDIGO
     public Cliente buscarPorCodigo(String codigo) {
         String sql = """
             SELECT c.codigo, c.cedula, c.talla, c.sexo,
@@ -142,7 +139,6 @@ public class ServicioCliente {
         return null;
     }
 
-    // 4. ACTUALIZAR CLIENTE Y PERSONA
     public boolean actualizar(Cliente cliente) {
         String sqlPersona = """
             UPDATE public.persona
@@ -203,7 +199,6 @@ public class ServicioCliente {
         }
     }
 
-    // 5. ELIMINAR CLIENTE Y SU PERSONA ASOCIADA
     public boolean eliminar(String codigo) {
         String sqlBuscar = """
             SELECT cedula
