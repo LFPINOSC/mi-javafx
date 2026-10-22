@@ -24,6 +24,9 @@ public class Cliente extends Persona{
     public double getTalla() {
         return talla;
     }
+    public String getTallaString() {
+        return String.valueOf(talla);
+    }
 
     public void setTalla(double talla) {
         this.talla = talla;

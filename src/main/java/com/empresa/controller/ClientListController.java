@@ -36,8 +36,7 @@ public class ClientListController {
                 cell.getValue().getApellido()));
         emailColumn.setCellValueFactory(cell -> new javafx.beans.property.ReadOnlyStringWrapper(cell.getValue().getCorreo()));
         phoneColumn.setCellValueFactory(cell -> new javafx.beans.property.ReadOnlyStringWrapper(cell.getValue().getTelefono()));
-        //heightColumn.setCellValueFactory(cell -> new javafx.beans.property.ReadOnlyStringWrapper(
-                //cell.getValue().getHeightMeters().stripTrailingZeros().toPlainString() + " m"));
+        heightColumn.setCellValueFactory(cell -> new javafx.beans.property.ReadOnlyStringWrapper(cell.getValue().getTallaString()));
         sexColumn.setCellValueFactory(cell -> new javafx.beans.property.ReadOnlyStringWrapper(cell.getValue().getSexo()));
 
         FilteredList<Cliente> clients = new FilteredList<>(
@@ -88,12 +87,23 @@ public class ClientListController {
         }
         Alert confirmation = new Alert(Alert.AlertType.CONFIRMATION);
         confirmation.setTitle("Eliminar cliente");
-        confirmation.setHeaderText("¿Eliminar a " + client.getNombre() +  client.getApellido() + "?");
+        confirmation.setHeaderText("¿Eliminar a " + client.getNombre() + " " + client.getApellido() + "?");
         confirmation.setContentText("Esta acción quitará al cliente del directorio.");
         if (confirmation.showAndWait().filter(javafx.scene.control.ButtonType.OK::equals).isPresent()) {
-            //App.getServicioCliente().delete(String.valueOf(client.getCodigo()));
-            //App.showClientList();
+            if (App.getServicioCliente().eliminar(client.getCodigo())) {
+                App.showClientList();
+            } else {
+                showDeleteError();
+            }
         }
+    }
+
+    private void showDeleteError() {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("No se pudo eliminar el cliente");
+        alert.setHeaderText("El cliente no fue eliminado");
+        alert.setContentText("Intenta nuevamente. Si el problema continúa, verifica si el cliente tiene información relacionada.");
+        alert.showAndWait();
     }
 
     private void showSelectionWarning() {

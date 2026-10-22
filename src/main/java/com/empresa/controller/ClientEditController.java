@@ -36,7 +36,7 @@ public class ClientEditController {
         lastNameField.setText(cliente.getApellido());
         phoneField.setText(cliente.getTelefono());
         emailField.setText(cliente.getCorreo());
-        //heightMetersField.setText(cliente.getTalla().stripTrailingZeros().toPlainString());
+        heightMetersField.setText(cliente.getTallaString());
         ToggleGroup sexGroup = new ToggleGroup();
         maleButton.setToggleGroup(sexGroup);
         femaleButton.setToggleGroup(sexGroup);
@@ -45,24 +45,28 @@ public class ClientEditController {
 
     @FXML
     private void onSave() {
-        /*if (!isValid()) {
+        if (!isValid()) {
             return;
         }
-        Cliente updated = new Cliente(cliente.getCodigo(), identificationNumberField.getText().trim(),
-                firstNameField.getText().trim(), lastNameField.getText().trim(),
-                phoneField.getText().trim(), emailField.getText().trim(),
-                new BigDecimal(heightMetersField.getText().trim().replace(',', '.')),
-                maleButton.isSelected() ? "MASCULINO" : "FEMENINO");
-        try {
-            App.getClientRepository().update(updated);
+        Cliente updated = new Cliente();
+        updated.setCodigo(cliente.getCodigo());
+        updated.setCedula(identificationNumberField.getText().trim());
+        updated.setNombre(firstNameField.getText().trim());
+        updated.setApellido(lastNameField.getText().trim());
+        updated.setTelefono(phoneField.getText().trim());
+        updated.setCorreo(emailField.getText().trim());
+        updated.setTalla(new BigDecimal(heightMetersField.getText().trim().replace(',', '.')).doubleValue());
+        updated.setSexo(maleButton.isSelected() ? "MASCULINO" : "FEMENINO");
+
+        if (App.getServicioCliente().actualizar(updated)) {
             App.showClientDetails(updated);
-        } catch (IllegalArgumentException | IllegalStateException exception) {
+        } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("No se pudo actualizar el cliente");
-            alert.setHeaderText("Revisa los datos ingresados");
-            alert.setContentText(exception.getMessage());
+            alert.setHeaderText("No se guardaron los cambios");
+            alert.setContentText("Verifica los datos e intenta nuevamente.");
             alert.showAndWait();
-        }*/
+        }
     }
 
     @FXML

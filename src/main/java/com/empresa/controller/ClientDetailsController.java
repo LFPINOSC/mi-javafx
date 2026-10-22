@@ -54,8 +54,15 @@ public class ClientDetailsController {
         confirmation.setContentText("Esta acción quitará al cliente del directorio.");
         Optional<ButtonType> result = confirmation.showAndWait();
         if (result.isPresent() && result.get() == ButtonType.OK) {
-            //App.getClientRepository().deleteById(client.getId());
-            App.showClientList();
+            if (App.getServicioCliente().eliminar(cliente.getCodigo())) {
+                App.showClientList();
+            } else {
+                Alert error = new Alert(Alert.AlertType.ERROR);
+                error.setTitle("No se pudo eliminar el cliente");
+                error.setHeaderText("El cliente no fue eliminado");
+                error.setContentText("Intenta nuevamente. Si el problema continúa, verifica si el cliente tiene información relacionada.");
+                error.showAndWait();
+            }
         }
     }
 

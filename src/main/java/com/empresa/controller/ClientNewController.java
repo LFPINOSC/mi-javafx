@@ -54,6 +54,7 @@ public class ClientNewController {
         cliente.setSexo(maleButton.isSelected() ? "MASCULINO" : "FEMENINO");
         try {
             App.getServicioCliente().insert(cliente);
+            App.showClientList();
         } catch (IllegalArgumentException | IllegalStateException exception) {
             showError(exception.getMessage());
         }
