@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.empresa.controller.ClientNewController" styleClass="app-shell">
+    <left>
+        <VBox spacing="28" styleClass="sidebar">
+            <padding><Insets top="28" right="18" bottom="22" left="18"/></padding>
+            <HBox spacing="11" alignment="CENTER_LEFT">
+                <Label text="G" styleClass="brand-icon"/>
+                <VBox spacing="3">
+                    <Label text="UCACUE Gym" styleClass="brand-name"/>
+                    <Label text="GESTIÓN DE CLIENTES" styleClass="brand-subtitle"/>
+                </VBox>
+            </HBox>
+            <VBox spacing="10">
+                <Label text="ESPACIO DE TRABAJO" styleClass="menu-title"/>
+                <Button text="◎   Clientes" maxWidth="Infinity" onAction="#onCancel" styleClass="nav-button"/>
+            </VBox>
+            <VBox VBox.vgrow="ALWAYS"/>
+            <Label text="Módulo de clientes&#10;Gestión de socios" styleClass="sidebar-footer"/>
+        </VBox>
+    </left>
+    <center>
+        <ScrollPane fitToWidth="true" styleClass="screen-scroll">
+            <content>
+                <VBox spacing="20" alignment="TOP_CENTER" styleClass="content-area">
+                    <padding><Insets top="26" right="32" bottom="30" left="32"/></padding>
+                    <HBox maxWidth="860" alignment="CENTER_LEFT">
+                        <Button text="←  Volver al directorio" onAction="#onCancel" styleClass="text-button"/>
+                    </HBox>
+                    <VBox maxWidth="860" spacing="6">
+                        <Label text="GESTIÓN DE CLIENTES" styleClass="eyebrow"/>
+                        <Label text="Registrar nuevo cliente" styleClass="page-heading"/>
+                        <Label text="Registra los datos personales y la ficha técnica del cliente." styleClass="page-description"/>
+                    </VBox>
+                    <VBox maxWidth="860" spacing="20" styleClass="form-card">
+                        <padding><Insets top="24" right="26" bottom="24" left="26"/></padding>
+                        <VBox spacing="5">
+                            <Label text="Datos de Persona" styleClass="section-heading"/>
+                            <Label text="Información de identificación y contacto." styleClass="metric-detail"/>
+                        </VBox>
+                        <HBox spacing="16">
+                            <VBox spacing="7" HBox.hgrow="ALWAYS">
+                                <Label text="Cédula" styleClass="form-label"/>
+                                <TextField fx:id="identificationNumberField" promptText="Número de cédula" styleClass="form-input"/>
+                            </VBox>
+                            <VBox spacing="7" HBox.hgrow="ALWAYS">
+                                <Label text="Teléfono" styleClass="form-label"/>
+                                <TextField fx:id="phoneField" promptText="Teléfono de contacto" styleClass="form-input"/>
+                            </VBox>
+                        </HBox>
+                        <HBox spacing="16">
+                            <VBox spacing="7" HBox.hgrow="ALWAYS">
+                                <Label text="Nombres" styleClass="form-label"/>
+                                <TextField fx:id="firstNameField" promptText="Nombres" styleClass="form-input"/>
+                            </VBox>
+                            <VBox spacing="7" HBox.hgrow="ALWAYS">
+                                <Label text="Apellidos" styleClass="form-label"/>
+                                <TextField fx:id="lastNameField" promptText="Apellidos" styleClass="form-input"/>
+                            </VBox>
+                        </HBox>
+                        <VBox spacing="7">
+                            <Label text="Correo electrónico" styleClass="form-label"/>
+                            <TextField fx:id="emailField" promptText="nombre@correo.com" styleClass="form-input"/>
+                        </VBox>
+                        <VBox spacing="5" styleClass="form-section">
+                            <Label text="Ficha Técnica de Gimnasio" styleClass="section-heading"/>
+                            <Label text="Código de socio, talla y sexo." styleClass="metric-detail"/>
+                        </VBox>
+                        <HBox spacing="16">
+                            <VBox spacing="7" HBox.hgrow="ALWAYS">
+                                <Label text="Código de socio" styleClass="form-label"/>
+                                <Label text="Se asigna automáticamente al registrar" styleClass="detail-code"/>
+                            </VBox>
+                            <VBox spacing="7" HBox.hgrow="ALWAYS">
+                                <Label text="Talla (metros)" styleClass="form-label"/>
+                                <TextField fx:id="heightMetersField" promptText="Ej. 1.75" styleClass="form-input"/>
+                            </VBox>
+                        </HBox>
+                        <VBox spacing="8">
+                            <Label text="Sexo" styleClass="form-label"/>
+                            <HBox spacing="8" styleClass="segmented-control">
+                                <ToggleButton fx:id="maleButton" text="MASCULINO" styleClass="segment-button"/>
+                                <ToggleButton fx:id="femaleButton" text="FEMENINO" styleClass="segment-button"/>
+                            </HBox>
+                        </VBox>
+                        <Label fx:id="validationLabel" styleClass="validation-message"/>
+                        <HBox spacing="10" alignment="CENTER_RIGHT">
+                            <Button text="Cancelar" onAction="#onCancel" styleClass="secondary-button"/>
+                            <Button text="Registrar cliente" onAction="#onSave" styleClass="primary-button"/>
+                        </HBox>
+                    </VBox>
+                </VBox>
+            </content>
+        </ScrollPane>
+    </center>
+</BorderPane>
