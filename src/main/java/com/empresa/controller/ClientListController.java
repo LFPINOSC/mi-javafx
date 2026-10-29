@@ -58,6 +58,10 @@ public class ClientListController {
         App.showNewClient();
     }
 
+    @FXML private void onDashboard() { App.showDashboard(); }
+    @FXML private void onServices() { App.showServiceList(); }
+    @FXML private void onMemberships() { App.showMembershipList(); }
+
     @FXML
     private void onViewDetails() {
         Cliente client = clientsTable.getSelectionModel().getSelectedItem();

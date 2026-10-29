@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.empresa.controller.DashboardController" styleClass="app-shell">
+    <left>
+        <VBox spacing="28" styleClass="sidebar">
+            <padding><Insets top="28" right="18" bottom="22" left="18"/></padding>
+            <HBox spacing="11" alignment="CENTER_LEFT">
+                <Label text="G" styleClass="brand-icon"/>
+                <VBox spacing="3"><Label text="UCACUE Gym" styleClass="brand-name"/><Label text="CENTRO DE CONTROL" styleClass="brand-subtitle"/></VBox>
+            </HBox>
+            <VBox spacing="10">
+                <Label text="ESPACIO DE TRABAJO" styleClass="menu-title"/>
+                <Button text="⌂   Dashboard" maxWidth="Infinity" styleClass="nav-button-selected"/>
+                <Button text="◉   Clientes" maxWidth="Infinity" onAction="#onClients" styleClass="nav-button"/>
+                <Button text="▦   Servicios" maxWidth="Infinity" onAction="#onServices" styleClass="nav-button"/>
+                <Button text="▣   Membresías" maxWidth="Infinity" onAction="#onMemberships" styleClass="nav-button"/>
+            </VBox>
+            <VBox VBox.vgrow="ALWAYS"/>
+            <Label text="Panel general&#10;Administración del gimnasio" styleClass="sidebar-footer"/>
+        </VBox>
+    </left>
+    <center>
+        <VBox spacing="24" styleClass="content-area">
+            <padding><Insets top="32" right="36" bottom="32" left="36"/></padding>
+            <HBox alignment="CENTER_RIGHT"><Label text="ADMINISTRACIÓN" styleClass="user-label"/></HBox>
+            <VBox spacing="7">
+                <Label text="CENTRO DE CONTROL UCACUE GYM" styleClass="eyebrow"/>
+                <Label text="¡Hola, Administrador!" styleClass="page-heading"/>
+                <Label text="Resumen general de clientes, servicios y planes del gimnasio." styleClass="page-description"/>
+            </VBox>
+            <HBox spacing="18">
+                <VBox spacing="16" styleClass="metric-card" HBox.hgrow="ALWAYS">
+                    <padding><Insets top="20" right="22" bottom="20" left="22"/></padding>
+                    <Label text="SOCIOS REGISTRADOS" styleClass="metric-title"/>
+                    <Label fx:id="clientCountLabel" text="0" styleClass="metric-value metric-blue"/>
+                    <Label text="Clientes en el directorio" styleClass="metric-detail"/>
+                </VBox>
+                <VBox spacing="16" styleClass="metric-card" HBox.hgrow="ALWAYS">
+                    <padding><Insets top="20" right="22" bottom="20" left="22"/></padding>
+                    <Label text="SERVICIOS DISPONIBLES" styleClass="metric-title"/>
+                    <Label fx:id="serviceCountLabel" text="0" styleClass="metric-value metric-green"/>
+                    <Label text="Registros con estado activo" styleClass="metric-detail"/>
+                </VBox>
+                <VBox spacing="16" styleClass="metric-card" HBox.hgrow="ALWAYS">
+                    <padding><Insets top="20" right="22" bottom="20" left="22"/></padding>
+                    <Label text="CATÁLOGO TOTAL" styleClass="metric-title"/>
+                    <Label fx:id="totalServiceCountLabel" text="0" styleClass="metric-value"/>
+                    <Label text="Servicios registrados" styleClass="metric-detail"/>
+                </VBox>
+                            <VBox spacing="16" styleClass="metric-card" HBox.hgrow="ALWAYS" onMouseClicked="#onMemberships" style="-fx-cursor: hand;">
+                    <padding><Insets top="20" right="22" bottom="20" left="22"/></padding>
+                    <Label text="MEMBRESÍAS ACTIVAS" styleClass="metric-title"/>
+                    <Label fx:id="activeMembershipCountLabel" text="0" styleClass="metric-value metric-blue"/>
+                    <Label fx:id="totalMembershipCountLabel" text="de 0 planes" styleClass="metric-detail"/>
+                </VBox></HBox>
+            <HBox spacing="20" VBox.vgrow="ALWAYS">
+                <VBox spacing="15" styleClass="table-card" HBox.hgrow="ALWAYS">
+                    <padding><Insets top="22" right="22" bottom="22" left="22"/></padding>
+                    <Label text="Accesos rápidos" styleClass="section-heading"/>
+                    <Label text="Ve directamente a las tareas principales de administración." styleClass="metric-detail"/>
+                    <Button text="◉   Administrar clientes" onAction="#onClients" styleClass="quick-action" maxWidth="Infinity"/>
+                    <Button text="▦   Gestionar servicios" onAction="#onServices" styleClass="quick-action" maxWidth="Infinity"/>
+                    <Button text="▣   Administrar membresías" onAction="#onMemberships" styleClass="quick-action" maxWidth="Infinity"/>
+                    <VBox VBox.vgrow="ALWAYS"/>
+                    <Label fx:id="statusLabel" text="Indicadores calculados con los registros disponibles" styleClass="detail-code"/>
+                </VBox>
+                <VBox spacing="14" styleClass="table-card" HBox.hgrow="ALWAYS">
+                    <padding><Insets top="22" right="22" bottom="22" left="22"/></padding>
+                    <Label text="Estado del sistema" styleClass="section-heading"/>
+                    <Label text="Este panel resume los datos disponibles en el directorio de clientes y el catálogo de servicios." styleClass="metric-detail" wrapText="true"/>
+                    <HBox spacing="10" styleClass="status-summary"><Label text="●" styleClass="metric-green"/><Label text="Indicadores actualizados al abrir el panel" styleClass="metric-detail" wrapText="true"/></HBox>
+                    <VBox VBox.vgrow="ALWAYS"/>
+                </VBox>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>

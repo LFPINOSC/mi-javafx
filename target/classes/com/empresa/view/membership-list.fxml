@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.empresa.controller.MembershipListController" styleClass="app-shell">
+    <left>
+        <VBox spacing="24" styleClass="sidebar">
+            <padding><Insets top="28" right="18" bottom="22" left="18"/></padding>
+            <HBox spacing="11" alignment="CENTER_LEFT"><Label text="G" styleClass="brand-icon"/><VBox spacing="3"><Label text="UCACUE Gym" styleClass="brand-name"/><Label text="GESTIÓN DE CATÁLOGO" styleClass="brand-subtitle"/></VBox></HBox>
+            <VBox spacing="10">
+                <Label text="ESPACIO DE TRABAJO" styleClass="menu-title"/>
+                <Button text="⌂   Dashboard" maxWidth="Infinity" onAction="#onDashboard" styleClass="nav-button"/>
+                <Button text="◉   Clientes" maxWidth="Infinity" onAction="#onClients" styleClass="nav-button"/>
+                <Button text="▦   Servicios" maxWidth="Infinity" onAction="#onServices" styleClass="nav-button"/>
+                <Button text="▣   Membresías" maxWidth="Infinity" styleClass="nav-button-selected"/>
+            </VBox>
+            <VBox VBox.vgrow="ALWAYS"/>
+            <Label text="Planes tarifarios&#10;y servicios vinculados" styleClass="sidebar-footer"/>
+        </VBox>
+    </left>
+    <center>
+        <VBox spacing="18" styleClass="content-area">
+            <padding><Insets top="25" right="26" bottom="24" left="26"/></padding>
+            <HBox alignment="CENTER_RIGHT"><Label text="GESTIÓN DE CATÁLOGO" styleClass="user-label"/></HBox>
+            <VBox spacing="5">
+                <Label text="MEMBRESÍAS Y SERVICIOS" styleClass="eyebrow"/>
+                <Label text="Planes del gimnasio" styleClass="page-heading"/>
+                <Label text="Configura tarifas y vincula los servicios incluidos en cada plan." styleClass="page-description"/>
+            </VBox>
+            <HBox spacing="16" VBox.vgrow="ALWAYS">
+                <VBox spacing="12" styleClass="table-card" HBox.hgrow="ALWAYS">
+                    <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
+                    <HBox alignment="CENTER_LEFT"><VBox spacing="3" HBox.hgrow="ALWAYS"><Label text="Catálogo de membresías" styleClass="section-heading"/><Label fx:id="resultCountLabel" text="0 planes" styleClass="metric-detail"/></VBox></HBox>
+                    <TextField fx:id="searchField" promptText="Buscar por código o nombre del plan..." styleClass="search-field"/>
+                    <HBox spacing="9" alignment="CENTER_LEFT">
+                        <Label text="Estado" styleClass="form-label"/>
+                        <ComboBox fx:id="statusFilterBox" prefWidth="125"/>
+                        <Button text="+ Nueva membresía" onAction="#onNewMembership" styleClass="primary-button" HBox.hgrow="ALWAYS"/>
+                    </HBox>
+                    <TableView fx:id="membershipsTable" VBox.vgrow="ALWAYS" styleClass="clients-table">
+                        <columns>
+                            <TableColumn fx:id="codeColumn" text="CÓDIGO" prefWidth="100"/>
+                            <TableColumn fx:id="nameColumn" text="PLAN" prefWidth="170"/>
+                            <TableColumn fx:id="valueColumn" text="VALOR / MES" prefWidth="100"/>
+                            <TableColumn fx:id="statusColumn" text="ESTADO" prefWidth="85"/>
+                        </columns>
+                    </TableView>
+                    <HBox spacing="8" alignment="CENTER_RIGHT"><Button text="Editar seleccionado" onAction="#onEditMembership" styleClass="secondary-button"/><Button text="Dar de baja / eliminar" onAction="#onDeleteMembership" styleClass="danger-button"/></HBox>
+                </VBox>
+                <VBox spacing="12" prefWidth="330" minWidth="285" styleClass="form-card">
+                    <padding><Insets top="17" right="17" bottom="17" left="17"/></padding>
+                    <VBox spacing="4"><Label fx:id="formTitleLabel" text="Nueva membresía" styleClass="section-heading"/><Label text="Define los datos y servicios incluidos." styleClass="metric-detail"/></VBox>
+                    <HBox spacing="8" alignment="CENTER_LEFT"><VBox spacing="5" HBox.hgrow="ALWAYS"><Label text="Código único" styleClass="form-label"/><TextField fx:id="codeField" promptText="MEM-001" styleClass="form-input"/></VBox><VBox spacing="5"><Label text="Estado" styleClass="form-label"/><ComboBox fx:id="statusBox" prefWidth="108"/></VBox></HBox>
+                    <VBox spacing="5"><Label text="Nombre del plan" styleClass="form-label"/><TextField fx:id="nameField" promptText="Ej. Plan Gold" styleClass="form-input"/></VBox>
+                    <VBox spacing="5"><Label text="Arancel mensual ($)" styleClass="form-label"/><TextField fx:id="valueField" promptText="0.00" styleClass="form-input"/></VBox>
+                    <HBox spacing="8" alignment="CENTER_LEFT"><Label text="Servicios incluidos" styleClass="form-label"/><Label fx:id="selectedServicesLabel" text="0 seleccionados" styleClass="detail-code"/></HBox>
+                    <ScrollPane fitToWidth="true" prefHeight="175" VBox.vgrow="ALWAYS" styleClass="service-options-scroll">
+                        <content><VBox fx:id="serviceOptionsBox" spacing="8"/></content>
+                    </ScrollPane>
+                    <Label fx:id="validationLabel" styleClass="validation-message" wrapText="true"/>
+                    <Button fx:id="saveButton" text="Guardar membresía" onAction="#onSaveMembership" styleClass="primary-button" maxWidth="Infinity"/>
+                    <Button text="Limpiar formulario" onAction="#onClearForm" styleClass="secondary-button" maxWidth="Infinity"/>
+                </VBox>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>

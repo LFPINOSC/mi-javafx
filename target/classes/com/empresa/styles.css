@@ -178,6 +178,49 @@
     -fx-background-color: #e0e9fb;
 }
 
+.quick-action {
+    -fx-background-color: #f5f7fc;
+    -fx-background-radius: 10px;
+    -fx-border-color: #e5eaf5;
+    -fx-border-radius: 10px;
+    -fx-text-fill: #303a53;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-padding: 15px;
+    -fx-alignment: CENTER_LEFT;
+    -fx-cursor: hand;
+}
+
+.quick-action:hover {
+    -fx-background-color: #e8efff;
+    -fx-text-fill: #0051d5;
+}
+
+.status-summary {
+    -fx-padding: 14px;
+    -fx-background-color: #f5f7fc;
+    -fx-background-radius: 10px;
+    -fx-alignment: CENTER_LEFT;
+}
+
+.service-options-scroll,
+.service-options-scroll > .viewport {
+    -fx-background-color: #f8f9fd;
+}
+
+.service-options-scroll {
+    -fx-border-color: #e5eaf5;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-padding: 6px;
+}
+
+.membership-service-option {
+    -fx-text-fill: #303a53;
+    -fx-font-size: 11px;
+    -fx-padding: 5px 2px;
+}
+
 .danger-button {
     -fx-background-color: #fff0ee;
     -fx-text-fill: #a33b35;

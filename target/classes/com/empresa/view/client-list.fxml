@@ -24,7 +24,10 @@
             </HBox>
             <VBox spacing="10">
                 <Label text="ESPACIO DE TRABAJO" styleClass="menu-title"/>
+                <Button text="⌂   Dashboard" maxWidth="Infinity" onAction="#onDashboard" styleClass="nav-button"/>
                 <Button text="◎   Clientes" maxWidth="Infinity" styleClass="nav-button-selected"/>
+                <Button text="▦   Servicios" maxWidth="Infinity" onAction="#onServices" styleClass="nav-button"/>
+                <Button text="▣   Membresías" maxWidth="Infinity" onAction="#onMemberships" styleClass="nav-button"/>
             </VBox>
             <VBox VBox.vgrow="ALWAYS"/>
             <Label text="Módulo de clientes&#10;Gestión de socios" styleClass="sidebar-footer"/>

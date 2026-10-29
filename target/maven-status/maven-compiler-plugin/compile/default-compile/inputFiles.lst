@@ -4,6 +4,9 @@ C:\Users\lfpin\OneDrive\Documentos\NetBeansProjects\sistemaJavaFx\mi-javafx\src\
 C:\Users\lfpin\OneDrive\Documentos\NetBeansProjects\sistemaJavaFx\mi-javafx\src\main\java\com\empresa\controller\ClientEditController.java
 C:\Users\lfpin\OneDrive\Documentos\NetBeansProjects\sistemaJavaFx\mi-javafx\src\main\java\com\empresa\controller\ClientListController.java
 C:\Users\lfpin\OneDrive\Documentos\NetBeansProjects\sistemaJavaFx\mi-javafx\src\main\java\com\empresa\controller\ClientNewController.java
+C:\Users\lfpin\OneDrive\Documentos\NetBeansProjects\sistemaJavaFx\mi-javafx\src\main\java\com\empresa\controller\DashboardController.java
+C:\Users\lfpin\OneDrive\Documentos\NetBeansProjects\sistemaJavaFx\mi-javafx\src\main\java\com\empresa\controller\MembershipListController.java
+C:\Users\lfpin\OneDrive\Documentos\NetBeansProjects\sistemaJavaFx\mi-javafx\src\main\java\com\empresa\controller\ServiceListController.java
 C:\Users\lfpin\OneDrive\Documentos\NetBeansProjects\sistemaJavaFx\mi-javafx\src\main\java\com\empresa\Entidadas\Cliente.java
 C:\Users\lfpin\OneDrive\Documentos\NetBeansProjects\sistemaJavaFx\mi-javafx\src\main\java\com\empresa\Entidadas\Inscripcion.java
 C:\Users\lfpin\OneDrive\Documentos\NetBeansProjects\sistemaJavaFx\mi-javafx\src\main\java\com\empresa\Entidadas\Membresia.java
@@ -13,5 +16,7 @@ C:\Users\lfpin\OneDrive\Documentos\NetBeansProjects\sistemaJavaFx\mi-javafx\src\
 C:\Users\lfpin\OneDrive\Documentos\NetBeansProjects\sistemaJavaFx\mi-javafx\src\main\java\com\empresa\Entidadas\Peso.java
 C:\Users\lfpin\OneDrive\Documentos\NetBeansProjects\sistemaJavaFx\mi-javafx\src\main\java\com\empresa\Entidadas\Servicio.java
 C:\Users\lfpin\OneDrive\Documentos\NetBeansProjects\sistemaJavaFx\mi-javafx\src\main\java\com\empresa\Servicios\ServicioCliente.java
+C:\Users\lfpin\OneDrive\Documentos\NetBeansProjects\sistemaJavaFx\mi-javafx\src\main\java\com\empresa\Servicios\ServicioMembresia.java
+C:\Users\lfpin\OneDrive\Documentos\NetBeansProjects\sistemaJavaFx\mi-javafx\src\main\java\com\empresa\Servicios\ServicioServicio.java
 C:\Users\lfpin\OneDrive\Documentos\NetBeansProjects\sistemaJavaFx\mi-javafx\src\main\java\com\empresa\SystemInfo.java
 C:\Users\lfpin\OneDrive\Documentos\NetBeansProjects\sistemaJavaFx\mi-javafx\src\main\java\module-info.java

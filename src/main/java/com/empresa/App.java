@@ -4,7 +4,10 @@ import java.io.IOException;
 import java.net.URL;
 
 import com.empresa.Entidadas.Cliente;
+import com.empresa.Entidadas.Servicio;
 import com.empresa.Servicios.ServicioCliente;
+import com.empresa.Servicios.ServicioMembresia;
+import com.empresa.Servicios.ServicioServicio;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -18,16 +21,40 @@ public class App extends Application {
     
     private static final ServicioCliente servicioCliente =
             new ServicioCliente();
+    private static final ServicioServicio servicioServicio =
+            new ServicioServicio();
+    private static final ServicioMembresia servicioMembresia =
+            new ServicioMembresia();
     @Override
     public void start(Stage stage) {
         primaryStage = stage;
         primaryStage.setTitle("UCACUE Gym | Gestión de clientes");
         primaryStage.setMinWidth(1040);
         primaryStage.setMinHeight(680);
-        showClientList();
+        showDashboard();
         primaryStage.show();
     }
     private static Cliente selectedClient;
+
+    private static Servicio selectedService;
+
+    public static void showDashboard() {
+        showScreen("/com/empresa/view/dashboard.fxml", "UCACUE Gym | Dashboard");
+    }
+
+    public static void showServiceList() {
+        selectedService = null;
+        showScreen("/com/empresa/view/service-list.fxml", "UCACUE Gym | Servicios");
+    }
+
+    public static void showMembershipList() {
+        showScreen("/com/empresa/view/membership-list.fxml", "UCACUE Gym | Membresías");
+    }
+
+    public static void showEditService(Servicio servicio) {
+        selectedService = servicio;
+        showScreen("/com/empresa/view/service-list.fxml", "UCACUE Gym | Editar servicio");
+    }
      
     public static void showClientList() {
         showScreen("/com/empresa/view/client-list.fxml", "UCACUE Gym | Clientes");
@@ -48,6 +75,18 @@ public class App extends Application {
     }
     public static ServicioCliente getServicioCliente() {
         return servicioCliente;
+    }
+
+    public static ServicioServicio getServicioServicio() {
+        return servicioServicio;
+    }
+
+    public static ServicioMembresia getServicioMembresia() {
+        return servicioMembresia;
+    }
+
+    public static Servicio getSelectedService() {
+        return selectedService;
     }
     public static Cliente getSelectedClient() {
         if (selectedClient == null) {
